@@ -1,1 +1,1 @@
-This is a Budget App
+This is a Budget App.
