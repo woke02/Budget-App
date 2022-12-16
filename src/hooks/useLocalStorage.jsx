@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 export default function useLocalStorage(key, initialValue) {
     const [value, setValue] = useState(() => {
-        const jsonValue = localStorage.getItem(prefixedKey)
+        const jsonValue = localStorage.getItem(key)
         if (jsonValue !== 'undefined' && jsonValue !== null) return JSON.parse(jsonValue)
         if (typeof initialValue === 'function') {
             return initialValue()
@@ -12,8 +12,8 @@ export default function useLocalStorage(key, initialValue) {
     })
 
     useEffect(() => {
-        localStorage.setItem(prefixedKey, JSON.stringify(value))
-    }, [prefixedKey, value])
+        localStorage.setItem(key, JSON.stringify(value))
+    }, [key, value])
 
     return [value, setValue]
 }
