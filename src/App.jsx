@@ -43,9 +43,7 @@ function App() {
         >
           {budgets.map(budget => {
             const amount = getBudgetExpenses(budget.id).reduce(
-              (total, expense) => total + expense.amount,
-              0
-            )
+              (total, expense) => total + expense.amount,0)
             return (
               <BudgetCard
                 key={budget.id}
@@ -54,8 +52,7 @@ function App() {
                 max={budget.max}
                 onAddExpenseClick={() => openAddExpenseModal(budget.id)}
                 onViewExpensesClick={() =>
-                  setViewExpensesModalBudgetId(budget.id)
-                }
+                  setViewExpensesModalBudgetId(budget.id)}
               />
             )
           })}
